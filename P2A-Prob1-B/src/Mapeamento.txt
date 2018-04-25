@@ -2,17 +2,21 @@ MAPEAMENTO PROJETO 1
 
 - Padrao de Projeto Adapter:
 
-Target: O papel do Target no projeto � representado pela interface FormatoAudio.java;
+Target: O papel do Target no projeto é representado pela interface FormatoAudio.java;
 
-Adaptee: O papel do Adaptee � representado pelas classes "Helper"(ACCPlayerHelper, AIFFSuperPlayerHelper, MP3DJHelper, WAVPlayerHelper, wmaPlayHelper).
-
+Adaptee: O papel do Adaptee é representado pelas classes "Helper"(ACCPlayerHelper, AIFFSuperPlayerHelper, MP3DJHelper, WAVPlayerHelper, wmaPlayHelper).
+--> Prof. Marcel: Adaptee (adaptada) são as classes entregues pela empresa (.jar)
+--> Prof. Marcel: Adapter (adaptador) são as classes Helper
 
 - Padrao de Projeto Factory
 
-Respons�vel por retornar qual o tipo de inst�ncia de classe retornar a partir de uma condi��o.
+Responsável por retornar qual o tipo de instância de classe retornar a partir de uma condição.
 
-No projeto a classe CriarAudio desempnha a fun��o da metodologia Factory.
+No projeto a classe CriarAudio desempnha a função da metodologia Factory.
+--> Prof. Marcel: no projeto disponível no GitHub não há uma classe CriarAudio. A classe Model.FormatoAudio é que é factory/creator.
+--> Prof. Marcel: quem desempenha o papel de Product e de ConcreteProduct?
 
 - Facade
 
-No projeto a classe FormatoAudio desempenha a fun��o do Facade.
+No projeto a classe FormatoAudio desempenha a função do Facade.
+--> Prof. Marcel: A classe disponível não implementa reproduzirSimples e pararSimples - métodos que deveriam estar na fachada.
