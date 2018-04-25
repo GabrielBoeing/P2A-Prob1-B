@@ -1,0 +1,18 @@
+MAPEAMENTO PROJETO 1
+
+- Padrao de Projeto Adapter:
+
+Target: O papel do Target no projeto é representado pela interface FormatoAudio.java;
+
+Adaptee: O papel do Adaptee é representado pelas classes "Helper"(ACCPlayerHelper, AIFFSuperPlayerHelper, MP3DJHelper, WAVPlayerHelper, wmaPlayHelper).
+
+
+- Padrao de Projeto Factory
+
+Responsável por retornar qual o tipo de instância de classe retornar a partir de uma condição.
+
+No projeto a classe CriarAudio desempnha a função da metodologia Factory.
+
+- Facade
+
+No projeto a classe FormatoAudio desempenha a função do Facade.

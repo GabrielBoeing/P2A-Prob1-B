@@ -1,55 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
-/**
- *
- * @author gabri
- */
-public class FormatoAudio implements Interface.FormatoAudio{
-    
-    private Interface.FormatoAudio novoAudio;
+public class FormatoAudio {
 
-    @Override
-    public void abrir(String path) {
-        Path caminho = Paths.get(path);
-        this.novoAudio = new CriarAudio().criarAudio(caminho);
+    private Interface.FormatoAudio audio;
+
+    /*
+        wmaPlay
+        AIFFSuperPlayer 
+        WAVPlayer 
+        ---------------
+        MP3, AAC, WMA, M4A, OGG, FLAC, WAV, AIFF
+    */
+
+    public String getExtencao(Path path) {
+        return path.getFileName().toString();
     }
 
-    @Override
-    public void reproduzir() {
-        novoAudio.reproduzir();
+    public Interface.FormatoAudio criarAudio(Path path) {
+        String extencao = this.getExtencao(path);
+        //testando qual instancia deve ser criado
+        if (extencao.equals("MP3") || extencao.equals("AAC") ) 
+            this.audio = new ACCPlayerHelper();
+        else if (extencao.equals("M4A") || extencao.equals("OGG"))
+            this.audio = new AIFFSuperPlayerHelper();
+        else if (extencao.equals("WAV") || extencao.equals("AIFF"))
+            this.audio = new MP3DJHelper();
+        else if (extencao.equals("WMA"))
+            this.audio = new WAVPlayerHelper();
+        else if (extencao.equals("FLAC"))
+            this.audio = new wmaPlayHelper();
+
+        //retornando facade
+        return this.audio;
     }
 
-    @Override
-    public void pausar() {
-        novoAudio.pausar();
-    }
-
-    @Override
-    public void parar() {
-        novoAudio.parar();
-    }
-
-    @Override
-    public void avancar(int qtdSegAvancar) {
-        novoAudio.avancar(qtdSegAvancar);
-    }
-
-    @Override
-    public void retomar(int qtdSegRetrocedidos) {
-        novoAudio.retomar(qtdSegRetrocedidos);
-    }
-
-    @Override
-    public void liberar() {
-        novoAudio.liberar();
-    }
-    
 }
